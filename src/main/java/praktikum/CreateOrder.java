@@ -1,4 +1,5 @@
 package praktikum;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import java.net.HttpURLConnection;
@@ -9,7 +10,7 @@ import static praktikum.Constants.*;
 
 public class CreateOrder {
 
-    //Создание нового заказа
+    @Step("Создание нового заказа")
     public ValidatableResponse createOrder(String firstName, String lastName, String address, String metroStation, String phone, int rentTime,
                                            String deliveryDate, String comment, List<String> color) {
         ОrderCreated order = new ОrderCreated(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
@@ -25,7 +26,7 @@ public class CreateOrder {
     }
 
 
-    //Получение списка заказов
+    @Step("Получение списка заказов")
     public ValidatableResponse getOrdersList() {
         return given()
                 .contentType(ContentType.JSON)

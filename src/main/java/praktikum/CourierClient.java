@@ -1,4 +1,5 @@
 package praktikum;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
 import praktikum.model.CourierCreated;
@@ -8,7 +9,7 @@ import static io.restassured.RestAssured.given;
 
 public class CourierClient {
 
-    //создание нового курьера
+    @Step("Создание нового курьера")
     public ValidatableResponse getNewCourier(CourierCreated courier) {
         return given()
                 .contentType(ContentType.JSON)
@@ -19,7 +20,7 @@ public class CourierClient {
                 .then().log().all();
     }
 
-    //логин курьера в системе
+    @Step("Логин курьера в системе")
     public ValidatableResponse logInCourier(CourierLogin courier) {
         return given()
                 .log().all()
@@ -30,7 +31,7 @@ public class CourierClient {
                 .post(Constants.LOGIN_COURIER)
                 .then().log().all();
     }
-    //удаление курьера из системы
+    @Step("Удаление курьера из системы")
     public ValidatableResponse deleteCourier(String id) {
         return given()
                 .log().all()
