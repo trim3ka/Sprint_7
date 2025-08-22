@@ -34,7 +34,6 @@ class CourierLoginTest {
 
     @Test
     @DisplayName("Успешная авторизация курьера")
-    @Step("Авторизация существующего курьера")
 
     public void logInCourierSuccessfully () {
 

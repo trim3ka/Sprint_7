@@ -61,7 +61,6 @@ public class CourierCreateTest {
     @Test
     @DisplayName("Проверка, что нельзя создать курьера с уже существующим логином")
 
-    @Step("Создание курьера с уже существующим логином")
     public void createDuplicateLoginCourierShouldFail() {
 
         var firstCourier = CourierCreated.random();

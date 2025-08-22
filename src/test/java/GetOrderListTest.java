@@ -27,12 +27,10 @@ public class GetOrderListTest {
         checkResponseContainsOrdersList(response);
     }
 
-    @Step("Проверить статус ответа")
     private void checkResponseStatus(ValidatableResponse response) {
         response.statusCode(HttpURLConnection.HTTP_OK);
     }
 
-    @Step("Проверить наличие списка заказов в ответе")
     private void checkResponseContainsOrdersList(ValidatableResponse response) {
         response.body("orders", notNullValue());
 
