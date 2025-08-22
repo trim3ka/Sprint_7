@@ -1,6 +1,9 @@
 package praktikum;
 import io.restassured.http.ContentType;
 import io.restassured.response.ValidatableResponse;
+import praktikum.model.CourierCreated;
+import praktikum.model.CourierLogin;
+
 import static io.restassured.RestAssured.given;
 
 public class CourierClient {

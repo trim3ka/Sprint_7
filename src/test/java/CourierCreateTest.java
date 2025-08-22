@@ -4,7 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import praktikum.CourierClient;
-import praktikum.CourierCreated;
+import praktikum.model.CourierCreated;
 import java.net.HttpURLConnection;
 import java.util.Random;
 import static org.hamcrest.Matchers.equalTo;

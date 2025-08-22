@@ -4,8 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import praktikum.CourierClient;
-import praktikum.CourierCreated;
-import praktikum.CourierLogin;
+import praktikum.model.CourierCreated;
+import praktikum.model.CourierLogin;
 import java.net.HttpURLConnection;
 import static org.hamcrest.Matchers.*;
 
