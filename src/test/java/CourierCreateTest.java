@@ -36,11 +36,9 @@ public class CourierCreateTest {
                 .body("ok", equalTo(true));
     }
 
-
     @Test
     @DisplayName("Проверка, что нельзя создать двух одинаковых курьеров")
 
-    @Step("Создание 2го идентичного курьера")
     public void createDuplicateCourierShouldFail() {
 
         var courier = CourierCreated.random();
@@ -82,30 +80,30 @@ public class CourierCreateTest {
     }
 
     @Test
-    @DisplayName("Проверки обязательных полей при создании курьера")
-
-    public void checkRequiredFieldsForCourierCreation() {
-        Allure.step("Создание курьера: поле 'login' обязательно", () -> {
+    @DisplayName("Проверка обязательности поля 'login' при создании курьера")
+    public void checkLoginFieldIsRequired() {
+        Allure.step("Создание курьера без login", () -> {
             var courier = CourierCreated.random();
             courier.setLogin(null);
 
-            //Создание курьера без login
             client.getNewCourier(courier)
                     .assertThat()
                     .statusCode(HttpURLConnection.HTTP_BAD_REQUEST)
                     .body("message", equalTo("Недостаточно данных для создания учетной записи"));
         });
+    }
 
-        Allure.step("Создание курьера: поле 'password' обязательно", () -> {
+    @Test
+    @DisplayName("Проверка обязательности поля 'password' при создании курьера")
+    public void checkPasswordFieldIsRequired() {
+        Allure.step("Создание курьера без password", () -> {
             var courier = CourierCreated.random();
             courier.setPassword(null);
 
-            //Создание курьера без password
             client.getNewCourier(courier)
                     .assertThat()
                     .statusCode(HttpURLConnection.HTTP_BAD_REQUEST)
                     .body("message", equalTo("Недостаточно данных для создания учетной записи"));
         });
-
     }
 }
